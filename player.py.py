@@ -1,6 +1,12 @@
 import json
 import items
 
+items_json = json
+
+items = json.loads(items_json)
+
+inventory = []
+
 class Player(object):
     def __init__(self, inventory, hp, victory):
         self.inventory = []
@@ -14,7 +20,10 @@ class Player(object):
     # prints whatever is currently in players inventory
     def print_inventory(self):
         for item in self.inventory:
-            print(item, '\n')
+            if len(inventory) == 0:
+                print("There is currently no items in your inventory")
+            else:
+                print(item, '\n')
 
     # attack method, 
     def attack(self, enemies):
@@ -25,5 +34,9 @@ class Player(object):
                 if i.damage > max_dmg:
                     max_dmg = i.damage
                     best_weapon = i
+
+    def pickup(self, items):
+
+        pass
 
         
