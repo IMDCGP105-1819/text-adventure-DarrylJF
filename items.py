@@ -1,70 +1,49 @@
-import json
-import enemies
-
-class Items(object):
+class Item(object):
     def __init__(self, name, description, weight):
-        self.name = name
+        self.name = name 
         self.description = description
         self.weight = weight
 
     def __str__(self):
-        return "Name: {}\n=====\nDescription: {}\nWeight: {}".format.upper(self.name, self.description, self.weight)
+        return f"\nName: {self.name}\nDescription: {self.description}\nWeight: {self.weight}"
 
-#inherits from base class items   
-class Weapons(Items):
-    def __init(self, name, description, weight, damage):
-        self.damage = damage
-        super().__init__(name, description, weight)
+# backpacks have spaces and all other items will have a 'weight' which will be an integer
+# two levels of backpacks level 1 with 4 slots and level 2 with 5 slots
+# if player reaches max slots will have to drop item first
+
+class backpack(Item):
+    def __init__(self, level, spaces):
+        self.level = level
+        self.spaces = spaces 
+        super().__init__(name="Backpack", # call to superclass constructor to initialise additional parameters
+                         description=f"This backack is level {self.level}. It has {self.spaces} spaces for items you find",
+                         level=self.level,
+                         spaces=self.spaces)
     
     def __str__(self):
-        return "Name: {}\n=====\nDescription: {}\nWeight: {}\nDamage: {}".format.upper(self.name, self.description, self.weight, self.damage)
+        return f"\nName: {self.name}\nDescription: {self.description}"
 
-#inherits from weapons
-class AK47(Weapons):
-    def __init__(self):
-        
-        def shoot(self):
-            if self.damage > 0:
-                print("You can shoot")
-            else:
-                print("cannot shoot with this item")
 
-class Heals(Items):
-    def __init__(self, name, description, weight, value):
-        self.value = value
-        super().__init__(name, description, weight)
+class Weapon(Item):
+    def __init__(self,name,description,weight,damage):
+        self.damage = damage
+        super().__init__(name,description,weight)
 
     def __str__(self):
-        return "Name: {}\n=====\nDescription: {}\nWeight: {}\nValue: {}".format.upper(self.name, self.description, self.weight, self.value)
+        return f"\nName: {self.name}\nDescription: {self.description}\nWeight: {self.weight}\nDamage: {self.damage}"
 
 
-items_json = '''
-{
-"Weapons": [
-    {
-        "name": "AK-47",
-        "description": "The AK-47, AK or as it is officially known as the Kalashnikov, is a gas-operated, 7.62x39mm assault rifle.",
-        "weight": 0,
-        "damage": 0
-    }
-            ],
-"Heals":    [
-    {
-        "name": "Medic Kit",
-        "description": "Will save your life",
-        "weight": 0,
-        "value": 0
-    }
-            ]
-}
-'''
+class Ak47(Weapon):
+    def __init__(self):
+        super().__init__(name="AK-47",
+                         description="The AK-47, officially known as the Avtomat Kalashnikov",
+                         weight=3,
+                         damage=100)
 
-inventory = []
-
-items = json.loads(items_json)
-#for item in items['Weapons']:
-    #print(item['description'])
-for item in items:
-    inventory.append(Items(item["name"], item["description"], item["weight"]))
-    print(inventory[0])
+class Shank(Weapon):
+    def __init__(self):
+         super().__init__(name="Shank",
+                         description="Improvised prison melee weapon to take down enemies in close quarters and steal their dogtags.",
+                         weight=1,
+                         damage=25)
 
