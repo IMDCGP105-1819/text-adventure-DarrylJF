@@ -1,0 +1,9 @@
+			
+	FindAk47Room	Path	Path	Enemy2Room
+		Path		
+		Path		
+RoomWithLoot	Path	Room1	Path	RoomWithBackpack
+		FindLootRoom		
+		Path		
+		Path		
+		RoomWithEnemy		
