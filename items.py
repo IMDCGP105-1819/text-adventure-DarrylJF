@@ -11,7 +11,7 @@ class Item(object):
 # two levels of backpacks level 1 with 4 slots and level 2 with 5 slots
 # if player reaches max slots will have to drop item first
 
-class backpack(Item):
+class Backpack(Item):
     def __init__(self, level, spaces):
         self.level = level
         self.spaces = spaces 
@@ -46,4 +46,6 @@ class Shank(Weapon):
                          description="Improvised prison melee weapon to take down enemies in close quarters and steal their dogtags.",
                          weight=1,
                          damage=25)
+
+
 
