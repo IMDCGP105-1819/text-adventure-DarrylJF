@@ -17,11 +17,5 @@ def load_Tiles():
                 starting_position = (x,y)
             _map[(x,y)] = None if tile_name == '' else getattr(__import__('tiles'), tile_name)(x,y) 
 
-""" trying to parse txt file and iterate through each line and split the line into individual cells
-double for loop is apparently a common way to do this. x and y are the coordinated and we set the starting 
-coordinates to Room1.
+# parse data from text file into a python list
 
-the _map is a dictionary that should map a coordinate pair to the file so the code _map[(x,y)] if the coordinate pair
-is an empty string we dont store a tile in its place. 
-
-ti"""
