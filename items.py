@@ -33,7 +33,7 @@ ROCK = Items("Rock", "Literally a rock. Pickup a rock, take no room in inventory
 
 
 
-class Backpack(object):
+class Backpack:
     def __init__(self, name, level, slots):
         self.name = name
         self.level = level
