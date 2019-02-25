@@ -62,23 +62,38 @@ Two healable items will be available each with different values
  """
 from items import Items
 from enemies import Enemy
-import math
+
 
 class Player:
-    def __init__(self, name, inventory, pocket, actions, move, hp=100, has_backpack=False):
-        self.name = name 
-        self.inventory = {}
+    def __init__(self, name, pocket, hp, backpack):
+        self.name = name
         self.pocket = {}
-        self.actions = {
-            "P": "Pickup",
-            "D": "Drop",
-            "C": "Check",
-            "H": "Heal",
-            "A": "Attack"
-        }
-        self.move = {
-            "N": "North",
-            "E": "East",
-            "S": "South",
-            "W": "West"
-        }
+        self.hp = hp
+        self.backpack = False
+
+    def intro(self,name):
+        return f"Hi {self.name}, heres what you can do:"
+
+    def help_menu(self):
+        f = open("help.txt", "r")
+
+        if f.mode == "r":
+            contents = f.read()
+            print(contents)
+
+    def walkthrough_file(self):
+        pass
+
+    def view_inventory(self):
+        pass
+
+    def check_health(self):
+        pass
+
+    
+
+    
+
+
+
+
