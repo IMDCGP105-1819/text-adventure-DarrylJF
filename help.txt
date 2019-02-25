@@ -1,0 +1,42 @@
+HELP FILE
+=========
+
+As a player you have options
+
+MAIN MENU COMMANDS
+==================
+
+1. MOVE
+
+You can move around by selecting #1 from the main menu
+	  
+MOVE has four directions "North", "South", "East", "West"
+
+You can select either of the four directions by inputting "n", "s", "e", "w"
+
+2. INVENTORY
+
+You can check your inventory by selecting #2 from the main menu
+
+This will display all your current inventory
+
+3. CHECK HEALTH
+
+You can check your health anytime by selecting #3 from the main menu
+
+This will display your current players health status; You start with 100hp
+
+4. HELP
+
+Help will open this file!! ;-)
+
+5. GAME WALKTHROUGH
+
+You can check out how to complete the game by selecting #5 from the main menu
+
+6. QUIT
+
+To stop playing and quit the game select #6 from the main menu, games will not be saved! :-(
+
+
+
