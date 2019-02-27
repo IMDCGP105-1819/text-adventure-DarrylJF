@@ -1,55 +1,71 @@
 from player import Player
-from rooms import Room
+from enemies import Enemy
+from items import Weapon, Heals
+from game_map import MapTile
 
+"""
+Game starts by asking player to enter name and saves to player_name
+player character gets instantiated from player_name + health & inventory
+player introduction displayed
 
+Main game menu is displayed in a loop for the entirity of the gameplay
+works in a loop so will show up after every command has finished so user can input action
+
+"""
 
 
 
 def main():
-        game_menu = {}
-        game_menu['1']="Move" # goes to player .move method "'n', 'e', 's', 'w' each going to different ingame room"
-        game_menu['2']="View Inventory" # displays current inventory items
-        game_menu['3']="Check Health"
-        game_menu['4']="Help" # reads in .txt file for general game commands
-        game_menu['5']="Game Walkthrough" # reads in .txt file for game walkthrough
-        game_menu['6']="Quit"
+    player_name = input("Enter your name") # asks for user name from input
+    player = Player(player_name,100,[]) # use player_name to initialise player
+    player.intro() # calls Player class intro method using name input variable to greet player by name
+    
+    game_menu = {}
+    game_menu['1']="Move" # goes to player .move method for map navigation"
+    game_menu['2']="View Inventory" # displays current inventory items
+    game_menu['3']="Check Health" # displays player hp
+    game_menu['4']="Help" # reads in .txt file with game functionality info
+    game_menu['4']="Walkthrough" # reads in .txt walkthrough file explaining how to complete game
+    game_menu['5']="Quit" # end game / state not saved
 
-game_on = True
-while game_on:
-        player_name = input("Enter your name") # get player name from input
-        player = Player(player_name, {}, 100, False) # create player object
-        player.intro(player_name) # player introduction text
-        
-        print("""
-1. Move
+    print("""
+1. Move 
 2. View Inventory
 3. Check Health
 4. Help
-5. Game Walkthrough
+5. Walkthrough
 6. Quit
         """)
-        
-        answer=input("What do you want to do?")
 
+    while True:
+        room = game_map.map_location(player.x, player.y)
+        print(room.intro())
+        answer = player.get_player_command() # calls Player class method asking for player input
         if answer == "1":
-                player.move
+            direc = input("What direction: ")
+            if direc in ['n', 'N', 'north']:
+                player.travel_north()
+            elif direc in ['s', 'S', 'south']:
+                player.travel_south()
+            elif direc in ['e', 'E', 'east']:
+                player.travel_east()
+            elif direc in ['w', 'W', 'west']:
+                player.travel_west()
         elif answer == "2":
-                player.view_inventory()
+            player.view_inventory()
         elif answer == "3":
-                player.check_health()
+            player.hp()
         elif answer == "4":
-                player.help_menu()
+            player.view_help_file()
         elif answer == "5":
-                player.walkthrough()
+            player.view_walkthrough_file()
         elif answer == "6":
-                break
-        elif answer !="":
-                print("Invalid entry")
-
-
+            print("Ok no dramas")
+            break
+        elif answer != "":
+            print("Invalid entry")
+            
 if __name__ == "__main__":
-   main()                 
+    main()
 
 
-
-    
