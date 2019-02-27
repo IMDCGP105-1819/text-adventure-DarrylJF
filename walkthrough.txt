@@ -1,0 +1,23 @@
+GAME WALKTHROUGH
+================
+
+You will encounter an enemy in the first room if you go North and may get attacked if you interact or are hungry for loot, 
+so you're equipped with a rock and a bandage, and your next move may be fatal if you carry on heading North
+
+You need to go South to the loot room with your first room to gather some weapons and healable items
+
+Careful when looting though, you only have limited slots
+
+Maximum slots: 5
+
+Each item has a weight value which you can view if looting or item is in the inventory
+Each 1 weight value is equal to one slots
+Higher prized items like guns will have a higher weight value
+
+
+
+
+
+
+
+
