@@ -19,7 +19,7 @@ class LootRoomSquatter(Enemy):
 class Room1Enemy(Enemy):
     def __init__(self):
         self.name = "Ninja"
-        self.hp = 1000 # obviously 1000 hp its a ninja im tryna make sure you dont die
+        self.hp = 1000 
         self.attack = 50
 
 class Room2Enemy(Enemy):
